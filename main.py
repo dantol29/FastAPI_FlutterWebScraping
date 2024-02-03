@@ -23,4 +23,5 @@ async def get_video(query: str):
     response = request.execute()
     video_id = response['items'][0]['id']['videoId']
     video_link = f"https://www.youtube.com/watch?v={video_id}"
-    return {"video_link": video_link}
+    thumbnail_url = response['items'][0]['snippet']['thumbnails']['default']['url']
+    return {"video_link": video_link, "thumbnail_url": thumbnail_url}
